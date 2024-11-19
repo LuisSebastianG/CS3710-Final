@@ -1,2 +1,18 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+  
+  validates :username, presence: true
+  validate :email_format
+  
+  def email_format
+      unless email =~ /\A[\w+\-.]+@msudenver\.edu\z/i
+          errors.add(:email, "must be an @msudenver.edu email address")
+      end
+  end
+
+
+
 end
