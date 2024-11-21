@@ -1,0 +1,10 @@
+<h1>Editing feed item</h1>
+
+<%= render "form", feed_item: @feed_item %>
+
+<br>
+
+<div>
+  <%= link_to "Show this feed item", [@user, @feed_item] %> |
+  <%= link_to "Back to feed items", user_feed_items_path(@user) %>
+</div>
