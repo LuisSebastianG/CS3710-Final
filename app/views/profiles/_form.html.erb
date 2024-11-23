@@ -1,10 +1,10 @@
-<%= form_with(model: profile) do |form| %>
-  <% if profile.errors.any? %>
+<%= form_with(model: profile) do |profile_form| %>
+  <% if @user.profile.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+      <h2><%= pluralize(@user.profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
 
       <ul>
-        <% profile.errors.each do |error| %>
+        <% @user.profile.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -12,21 +12,21 @@
   <% end %>
 
   <div>
-    <%= form.label :pfp %>
-    <%= form.file_field :pfp %>
+    <%= profile_form.label :pfp %>
+    <%= profile_form.file_field :pfp %>
   </div>
 
   <div>
-    <%= form.label :banner %>
-    <%= form.file_field :banner %>
+    <%= profile_form.label :banner %>
+    <%= profile_form.file_field :banner %>
   </div>
 
   <div>
-    <%= form.label :bio, style: "display: block" %>
-    <%= form.text_area :bio %>
+    <%= profile_form.label :bio, style: "display: block" %>
+    <%= profile_form.text_area :bio %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= profile_form.submit %>
   </div>
 <% end %>

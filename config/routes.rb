@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :profiles
   devise_for :users, controllers: {
   registrations: 'users/registrations',
   sessions: 'users/sessions',
@@ -7,6 +6,7 @@ Rails.application.routes.draw do
   }
 
   resources :users do
+    resources :profiles
     resources :feed_items
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

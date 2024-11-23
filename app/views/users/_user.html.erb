@@ -1,8 +1,32 @@
 <div id="<%= dom_id user %>">
-  <p>
-    <strong>Username:</strong>
-    <%= user.username %>
-  </p>
 
+  <% if @user.profile %>
+    <p>
+      <%= image_tag @user.profile.banner.variant(resize_to_limit: [300, nil]) %>
+    </p>
+
+    <p>
+      <%= image_tag @user.profile.pfp.variant(resize_to_limit: [150, nil]) %>
+    </p>
+
+    <p>
+      <strong>Username:</strong>
+      <%= user.username %>
+    </p>
+
+    <p>
+      Description: <%= @user.profile.bio%>
+    </p>
+
+  <% else %>
+    <p>
+      <strong>Username</strong>
+      <%= user.username%>
+    </p>
+
+    <p>
+      No profile information available
+    </p>
+  <% end %>
 
 </div>

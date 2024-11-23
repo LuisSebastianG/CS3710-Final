@@ -16,7 +16,27 @@
     <%= form.text_field :username %>
   </div>
 
+<h2>Edit Profile Information</h2>
+
+  <%= form.fields_for :profile do |profile_form| %>
+
+    <div>
+      <%= profile_form.label :banner %>
+      <%= profile_form.file_field :banner %>
+    </div>
+
+    <div>
+      <%= profile_form.label :pfp %>
+      <%= profile_form.file_field :pfp %>
+    </div>
+
+    <div>
+      <%= profile_form.label :bio %>
+      <%= profile_form.text_area :bio %>
+    </div>
+  <% end %>
+
   <div>
-    <%= form.submit %>
+    <%= form.submit "Update Profile"%>
   </div>
 <% end %>
