@@ -9,6 +9,7 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :profile
   
   has_many :feed_items, dependent: :destroy
+  has_many :scrolls
   
   validates :username, presence: true
   validate :email_format

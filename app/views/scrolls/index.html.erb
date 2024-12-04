@@ -1,0 +1,19 @@
+<h1>For You</h1>
+
+<% if user_signed_in? %>
+  <%= form_with url: destroy_user_session_path, method: :delete, local: true do %>
+    <%= hidden_field_tag :user_id, @user_id %>
+    <%= submit_tag 'Sign Out', class: 'sign-out-link' %>
+  <% end %>
+<% else %>
+  <%= link_to "Sign Up", new_user_registration_path %>
+  <%= link_to "Log In", user_session_path %>
+<% end %>
+
+
+<% @scrolls.each do |feed_item| %>
+  <div class="feed-item">
+    <p><%= feed_item.body %></p>
+    <p><%= feed_item.created_at %></p>
+  </div>
+<% end %>
