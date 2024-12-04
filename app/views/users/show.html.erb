@@ -10,6 +10,7 @@
 <% end %>
 
 <div>
+  <%  link_to "Edit this Profile",  edit_user_profile_path(@user) %>
   <%= link_to "Edit this user", edit_user_path(@user) %> |
   <%= link_to "New Feed Item", user_feed_items_path(@user) %> |
   <%= link_to "Back to users", users_path %>

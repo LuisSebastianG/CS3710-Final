@@ -2,7 +2,11 @@ class ApplicationController < ActionController::Base
     #configure_permitted_parameters: method runs before each Devise controller action.
     before_action :configure_permitted_parameters, if: :devise_controller?
 
-    def after_sign_up_path_for(resource)
+    def after_sign_in_path_for(resource)
+        user_path(current_user)
+    end
+
+    def after_sign_in_path_up(resource)
         user_path(current_user)
     end
      

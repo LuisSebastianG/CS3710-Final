@@ -1,12 +1,12 @@
 <div id="<%= dom_id user %>">
 
-  <% if @user.profile %>
+  <% if @user.profile.present? %>
     <p>
-      <%= image_tag @user.profile.banner.variant(resize_to_limit: [300, nil]) %>
+      <%= image_tag @user.profile.banner.attached? ? url_for(@user.profile.banner.variant(resize_to_limit: [150, nil])) : asset_path('default_profile_pic.jpg'), class: "img-thumbnail", alt:"Banner Picture", width: "300" %>
     </p>
 
     <p>
-      <%= image_tag @user.profile.pfp.variant(resize_to_limit: [150, nil]) %>
+      <%= image_tag @user.profile.pfp.attached? ? url_for(@user.profile.pfp.variant(resize_to_limit: [150, nil])) : asset_path('default_profile_pic.jpg'), class: "img-thumbnail", alt:"Profile Picture", width: "150" %>
     </p>
 
     <p>
