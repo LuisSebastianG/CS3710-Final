@@ -23,11 +23,11 @@ User.destroy_all
   )
 
   # Create a profile for each user
-  Profile.create!(
-    bio: "This is the bio of User #{i + 1}",
-    user: user,
-    active: true
-  )
+#  Profile.create!(
+#    bio: "This is the bio of User #{i + 1}",
+#    user: user,
+#    active: true
+#  )
 
   # Create a post for each user
   FeedItem.create!(

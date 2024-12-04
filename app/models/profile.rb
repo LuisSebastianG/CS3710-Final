@@ -1,8 +1,8 @@
 class Profile < ApplicationRecord
     belongs_to :user
     
-    has_one_attached :pfp, dependent: :purge_later
-    has_one_attached :banner, dependent: :purge_later
+    has_one_attached :pfp, dependent: :destroy
+    has_one_attached :banner, dependent: :destroy
 
     validate :acceptable_pfp
     validate :acceptable_banner

@@ -2,7 +2,7 @@
 
   <% if @user.profile.present? %>
     <p>
-      <%= image_tag @user.profile.banner.attached? ? url_for(@user.profile.banner.variant(resize_to_limit: [150, nil])) : asset_path('default_profile_pic.jpg'), class: "img-thumbnail", alt:"Banner Picture", width: "300" %>
+      <%= image_tag @user.profile.banner.attached? ? url_for(@user.profile.banner) : asset_path('default_profile_pic.jpg'), class: "banner-img img-thumbnail", alt: "Banner Picture" %>
     </p>
 
     <p>
