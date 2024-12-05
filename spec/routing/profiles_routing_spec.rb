@@ -1,38 +1,38 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe ProfilesController, type: :routing do
-  describe "routing" do
-    it "routes to #index" do
-      expect(get: "/profiles").to route_to("profiles#index")
-    end
+  let(:user_id) { "1" }
+  let(:profile_id) { "1" }
 
-    it "routes to #new" do
-      expect(get: "/profiles/new").to route_to("profiles#new")
-    end
+  it "routes to #index" do
+    expect(get: "/users/#{user_id}/profiles").to route_to("profiles#index", user_id: user_id)
+  end
 
-    it "routes to #show" do
-      expect(get: "/profiles/1").to route_to("profiles#show", id: "1")
-    end
+  it "routes to #new" do
+    expect(get: "/users/#{user_id}/profiles/new").to route_to("profiles#new", user_id: user_id)
+  end
 
-    it "routes to #edit" do
-      expect(get: "/profiles/1/edit").to route_to("profiles#edit", id: "1")
-    end
+  it "routes to #show" do
+    expect(get: "/users/#{user_id}/profiles/#{profile_id}").to route_to("profiles#show", user_id: user_id, id: profile_id)
+  end
 
+  it "routes to #edit" do
+    expect(get: "/users/#{user_id}/profiles/#{profile_id}/edit").to route_to("profiles#edit", user_id: user_id, id: profile_id)
+  end
 
-    it "routes to #create" do
-      expect(post: "/profiles").to route_to("profiles#create")
-    end
+  it "routes to #create" do
+    expect(post: "/users/#{user_id}/profiles").to route_to("profiles#create", user_id: user_id)
+  end
 
-    it "routes to #update via PUT" do
-      expect(put: "/profiles/1").to route_to("profiles#update", id: "1")
-    end
+  it "routes to #update via PUT" do
+    expect(put: "/users/#{user_id}/profiles/#{profile_id}").to route_to("profiles#update", user_id: user_id, id: profile_id)
+  end
 
-    it "routes to #update via PATCH" do
-      expect(patch: "/profiles/1").to route_to("profiles#update", id: "1")
-    end
+  it "routes to #update via PATCH" do
+    expect(patch: "/users/#{user_id}/profiles/#{profile_id}").to route_to("profiles#update", user_id: user_id, id: profile_id)
+  end
 
-    it "routes to #destroy" do
-      expect(delete: "/profiles/1").to route_to("profiles#destroy", id: "1")
-    end
+  it "routes to #destroy" do
+    expect(delete: "/users/#{user_id}/profiles/#{profile_id}").to route_to("profiles#destroy", user_id: user_id, id: profile_id)
   end
 end
