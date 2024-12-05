@@ -1,6 +1,6 @@
 <%= form_with(model: user) do |form| %>
   <% if user.errors.any? %>
-    <div style="color: red">
+    <div class="error-messages" style="color: red">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
@@ -11,32 +11,29 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="form-group" style="text-align: center;">
     <%= form.label :username, style: "display: block" %>
-    <%= form.text_field :username %>
+    <%= form.text_field :username, class: 'form-control', style: "margin: 0 auto;" %>
   </div>
 
-<h2>Edit Profile Information</h2>
-
   <%= form.fields_for :profile do |profile_form| %>
-
-    <div>
+    <div class="form-group">
       <%= profile_form.label :banner %>
-      <%= profile_form.file_field :banner %>
+      <%= profile_form.file_field :banner, class: 'form-control', style: "display: block; margin: 0 auto;" %>
     </div>
 
-    <div>
+    <div class="form-group">
       <%= profile_form.label :pfp %>
-      <%= profile_form.file_field :pfp %>
+      <%= profile_form.file_field :pfp, class: 'form-control', style: "display: block; margin: 0 auto;" %>
     </div>
 
-    <div>
+    <div class="form-group">
       <%= profile_form.label :bio %>
-      <%= profile_form.text_area :bio %>
+      <%= profile_form.text_area :bio, class: 'form-control' %>
     </div>
   <% end %>
 
-  <div>
-    <%= form.submit "Update Profile"%>
+  <div class="form-actions" style="text-align: center;">
+    <%= form.submit "Update Profile", class: 'btn btn-primary' %>
   </div>
 <% end %>

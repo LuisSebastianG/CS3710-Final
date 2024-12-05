@@ -1,9 +1,11 @@
-<h1>Editing user</h1>
+<div class="header">
+  <h1>Editing user</h1>
+  <div class="auth-links">
+    <%= link_to "Back to Profile", @user, class: 'auth-link' %>
+  </div>
+</div>
 
 <%= render "form", user: @user %>
 
 <br>
 
-<div>
-  <%= link_to "Back to Profile", @user %>
-</div>
